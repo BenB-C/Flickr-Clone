@@ -1,1 +1,14 @@
 <h1>Shuttr</h1>
+
+<% if user_signed_in? %>
+  <% if @photos.any? %>
+    <ul>
+      <% @photos.each do |photo| %>
+        <li><%= photo.name %></li>
+      <% end %>
+    </ul>
+
+  <% else %>
+    <p>There are no photos</p>
+  <% end %>
+<% end %>

@@ -1,18 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Shuttr</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Shuttr</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' %>
+</head>
 
-  <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+<header>
+  <div class="container">
+    <nav>
+      |
+      <%= link_to('Home', '/') %>
+      |
+      <% if user_signed_in? %>
+        Signed in: <%= current_user.user_name %>
+        |
+        <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+        |
+        <%= link_to('Edit Account', edit_user_registration_path) %>
+      <% else %>
+        <%= link_to('Login', new_user_session_path) %>
+      <% end %>
+      |
+    </nav>
+  </div>
 
-    <%= yield %>
-  </body>
+</header>
+
+<body>
+  <div class="container">
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <%= yield %>
+</div>
+</body>
+
 </html>

@@ -1,23 +1,4 @@
 <div class="user-header">
   <h2>All Users</h2>
+  <%= @user.user_name %>
 </div>
-
-<% if @users.any? %>
-  <div class="user-container">
-    <% @users.each do |user|%>
-      <p><%= user.email %></p>
-    <% end %>
-  </div>
-<% end %>
-
-
-
-<% if user_signed_in? %>
-  <li>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path) %>
-  </li>
-<% end %>
