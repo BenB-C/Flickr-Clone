@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+## User Stories
+
+* As a user I want to upload photos to my camera roll
