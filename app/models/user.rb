@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :photos, foreign_key: :user_id
   has_many :comments, foreign_key: :user_id
   # has_many_attached :photos
+
+  validates :user_name, presence: true
+  validates :email, presence: true
+  validates :encrypted_password, presence: true
 end
