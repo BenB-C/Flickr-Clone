@@ -20,8 +20,8 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
     @photo = Photo.find(params[:id])
+    @user = User.find(@photo.user_id)
     @comments = @photo.comments
     render :show
   end

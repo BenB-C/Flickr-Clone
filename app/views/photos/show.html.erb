@@ -1,13 +1,32 @@
 <h1>Show Photo Page</h1>
 
   <% if @photo %>
-    <a href="/">
       <div class="container photo">
         <%= @photo.name %>
         <br>
         <%= image_tag @photo.image %>
       </div>
-    </a>
+      <div class="container comments">
+        <% if @photo.comments.any? %>
+          <ul>
+            <% @photo.comments.each do |comment| %>
+              <% user =  User.find(comment.user_id) %>
+              <li>
+                <%= user.user_name %>
+                <br>
+                <%= comment.content_body %>
+              </li>
+            <% end %>
+          </ul>
+        <% else %>
+          <p>There are no comments.</p>
+        <% end %>
+        <%= form_for(:comment, url: "/photos/#{@photo.id}/comments") do |f| %>
+          <%= f.text_area :content_body, placeholder: "Add a comment" %>
+          <br>
+          <%= f.submit "Comment", class: "btn btn-info" %>
+        <% end %>
+      </div>
   <% else %>
     redirect_to root_path
   <% end %>

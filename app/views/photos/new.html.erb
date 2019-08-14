@@ -1,9 +1,9 @@
 <div class="form-group">
   <%= form_for([current_user, @photo]) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%# <%= f.label :name %> %>
+    Name: <%= f.text_field :name %>
+    <%# <%= f.label :description %> %>
+    Description: <%= f.text_field :description %>
     <%= f.file_field :image %>
 
     <%= f.submit %>
