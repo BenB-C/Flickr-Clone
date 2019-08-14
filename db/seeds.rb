@@ -33,5 +33,15 @@ Dir.chdir('sample_photos')
     p "Photo attached successfully!"
   end
   photo.save
-
 end
+
+Photo.all.each do |photo|
+  rand(1..10).times do
+    user = User.all.sample
+    random_content_body = Faker::Hipster.paragraph_by_chars
+    photo.comments.new(content_body: random_content_body, user_id: user.id)
+    photo.save
+  end
+end
+
+User.new(user_name: "test", email: "t@t.com", password: "password")
