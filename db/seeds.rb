@@ -44,4 +44,4 @@ Photo.all.each do |photo|
   end
 end
 
-User.new(user_name: "test", email: "t@t.com", password: "password")
+User.new(user_name: "test", email: "t@t.com", password: "password").save
