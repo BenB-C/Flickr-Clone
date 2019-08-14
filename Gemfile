@@ -59,6 +59,7 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'factory_bot'
   gem 'simplecov', require:false
 end
 
