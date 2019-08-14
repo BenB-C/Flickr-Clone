@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :albums, foreign_key: :user_id
   has_many :photos, foreign_key: :user_id
   has_many :comments, foreign_key: :user_id
+  # has_many_attached :photos
 end

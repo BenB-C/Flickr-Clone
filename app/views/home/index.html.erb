@@ -1,10 +1,23 @@
 <h1>Shuttr</h1>
 
 <% if user_signed_in? %>
+<%= link_to "Add a photo", new_user_photo_path(current_user) %>
   <% if @photos.any? %>
     <ul>
       <% @photos.each do |photo| %>
-        <li><%= photo.name %></li>
+        <% user =  User.find(photo.user_id) %>
+        <li>
+          <%= user.user_name %>
+          <br>
+          <a href="/users/<%= user.id %>/photos/<%= photo.id %>">
+            <div class="container photo">
+              <%= photo.name %>
+              <br>
+              <%= image_tag photo.image %>
+            </div>
+          </a>
+        </li>
+        <br>
       <% end %>
     </ul>
 

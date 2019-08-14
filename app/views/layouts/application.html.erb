@@ -33,9 +33,17 @@
 
 <body>
   <div class="container">
+    <% if flash[:alert] %>
+      <div class="<%= flash[:alert]["class"] %>">
+        <%= flash[:alert]["content"] %>
+      </div>
+    <% end %>
+    <% if flash[:notice] %>
+      <div class="<%= flash[:notice]["class"] %>">
+        <%= flash[:notice]["content"] %>
+      </div>
+    <% end %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
   <%= yield %>
 </div>
 </body>
