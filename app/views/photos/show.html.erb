@@ -1,1 +1,13 @@
 <h1>Show Photo Page</h1>
+
+  <% if @photo %>
+    <a href="/">
+      <div class="container photo">
+        <%= @photo.name %>
+        <br>
+        <%= image_tag @photo.image %>
+      </div>
+    </a>
+  <% else %>
+    redirect_to root_path
+  <% end %>
