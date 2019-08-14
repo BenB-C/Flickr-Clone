@@ -1,0 +1,11 @@
+{
+  "notes": {
+    "spec": "SPEC",
+    "app": "APP",
+    "config": "ROUTES",
+    "db": "DATABASE",
+    "app/views": "VIEWS",
+    "app/controllers": "CONTROLLERS",
+    "app/models": "MODELS"
+  }
+}
